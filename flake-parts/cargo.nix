@@ -25,8 +25,7 @@
         ];
       };
 
-      # TODO: change the name to reflect the project
-      pname = "rust-crane";
+      pname = "cbz-helper";
 
       nativeBuildInputs = withExtraPackages [];
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath nativeBuildInputs;

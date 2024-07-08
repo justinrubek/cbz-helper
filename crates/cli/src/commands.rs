@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 #[derive(clap::Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 pub(crate) struct Args {
@@ -7,21 +9,21 @@ pub(crate) struct Args {
 
 #[derive(clap::Subcommand, Debug)]
 pub(crate) enum Commands {
-    Hello(Hello),
+    Rename(Rename),
 }
 
 #[derive(clap::Args, Debug)]
-pub(crate) struct Hello {
+pub(crate) struct Rename {
     #[clap(subcommand)]
-    pub command: HelloCommands,
+    pub command: RenameCommands,
+
+    #[arg(short, long)]
+    pub input: PathBuf,
+    #[arg(short, long)]
+    pub output_dir: PathBuf,
 }
 
 #[derive(clap::Subcommand, Debug)]
-pub(crate) enum HelloCommands {
-    World,
-    Name {
-        #[arg()]
-        name: String,
-    },
-    Error,
+pub(crate) enum RenameCommands {
+    Tzp,
 }
